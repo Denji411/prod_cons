@@ -14,12 +14,12 @@ int main() {
 
     pthread_t prod, cons;
     
-    if(!pthread_create(&prod, NULL, produttore, NULL)) {
+    if(pthread_create(&prod, NULL, produttore, NULL) != 0) {
         perror("Errore creazione produttore");
         return EXIT_FAILURE;
     }
 
-    if(!pthread_create(&cons, NULL, consumatore, NULL)) {
+    if(pthread_create(&cons, NULL, consumatore, NULL) != 0) {
         perror("Errore creazione consumatore");
         return EXIT_FAILURE;
     }
@@ -29,6 +29,6 @@ int main() {
 
     pthread_mutex_destroy(&mutex_prod);
     pthread_mutex_destroy(&mutex_cons);
-    pthread_exit(NULL);
+    return EXIT_SUCCESS;
 
 }

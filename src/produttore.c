@@ -12,7 +12,7 @@ void* produttore(void*) {
         pthread_mutex_lock(&mutex_prod);
 
         dato = i + 1;
-        printf("Dato prodotto: %d", dato);
+        printf("[P] prodotto: %d\n", dato);
         fflush(stdout);
 
         pthread_mutex_unlock(&mutex_cons);

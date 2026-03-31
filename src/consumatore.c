@@ -11,7 +11,7 @@ void* consumatore(void*) {
         
         pthread_mutex_lock(&mutex_cons);
 
-        printf("Dato consumato: %d", dato);
+        printf("[C] consumato: %d\n", dato);
         fflush(stdout);
 
         pthread_mutex_unlock(&mutex_prod);
